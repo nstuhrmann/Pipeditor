@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "674af6ad-5fb0-45ff-a281-cc4069da6cae",
+      "class_name": "CameraSimulator",
+      "params": {
+        "resolution": "640x480",
+        "num_frames": 60,
+        "illumination": "step",
+        "illum_level": 0.1,
+        "exposure_ms": 5.0,
+        "gain": 1.0,
+        "accept_control": true,
+        "read_noise_e": 4.0,
+        "bit_depth": "12",
+        "encoding": "sRGB",
+        "seed": 0
+      },
+      "pos": [
+        -360,
+        40
+      ],
+      "number": 1,
+      "bypassed": false
+    },
+    {
+      "id": "317f1b25-8164-4022-a001-89a94850815e",
+      "class_name": "AutoExposure",
+      "params": {
+        "target": 0.45,
+        "metering": "average",
+        "damping": 0.6,
+        "max_step_ev": 1.5,
+        "min_exposure_ms": 0.05,
+        "max_exposure_ms": 33.0,
+        "max_gain": 16.0,
+        "linearize": true
+      },
+      "pos": [
+        -60,
+        40
+      ],
+      "number": 1,
+      "bypassed": false
+    },
+    {
+      "id": "095b2f66-e12a-4ac4-a9ed-29137a697d8c",
+      "class_name": "AEMonitor",
+      "params": {
+        "quantity": "error_ev",
+        "dump_csv": true,
+        "csv_path": "ae_error_ev.csv"
+      },
+      "pos": [
+        240,
+        -110
+      ],
+      "number": 1,
+      "bypassed": false
+    },
+    {
+      "id": "e64895b2-bb46-470b-893e-4610c3d73ca7",
+      "class_name": "AEMonitor",
+      "params": {
+        "quantity": "gain",
+        "dump_csv": true,
+        "csv_path": "ae_gain.csv"
+      },
+      "pos": [
+        240,
+        40
+      ],
+      "number": 2,
+      "bypassed": false
+    },
+    {
+      "id": "115dd881-e520-4df3-9ca4-beadc1bc22ef",
+      "class_name": "SpatialNoise",
+      "params": {
+        "dump_csv": true,
+        "csv_path": "ae_noise_sigma.csv"
+      },
+      "pos": [
+        240,
+        190
+      ],
+      "number": 1,
+      "bypassed": false
+    }
+  ],
+  "edges": [
+    [
+      "674af6ad-5fb0-45ff-a281-cc4069da6cae",
+      "317f1b25-8164-4022-a001-89a94850815e",
+      0
+    ],
+    [
+      "317f1b25-8164-4022-a001-89a94850815e",
+      "095b2f66-e12a-4ac4-a9ed-29137a697d8c",
+      0
+    ],
+    [
+      "317f1b25-8164-4022-a001-89a94850815e",
+      "e64895b2-bb46-470b-893e-4610c3d73ca7",
+      0
+    ],
+    [
+      "317f1b25-8164-4022-a001-89a94850815e",
+      "115dd881-e520-4df3-9ca4-beadc1bc22ef",
+      0
+    ]
+  ]
+}
